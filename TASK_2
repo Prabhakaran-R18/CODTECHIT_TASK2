@@ -1,0 +1,44 @@
+import pandas as pd
+import numpy as np
+from sklearn.model_selection import train_test_split
+from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.naive_bayes import MultinomialNB
+
+ds=pd.read_csv('/content/kalki_movie_reviews.csv')
+
+ds
+
+ds.info()
+
+features=['Comments']
+target='Ratings'
+x=ds[features]
+y=ds[target]
+
+x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.25, random_state=42)
+
+vectorizer = CountVectorizer()
+
+x_train_vec = vectorizer.fit_transform(x_train['Comments'])
+
+x_test_vec = vectorizer.transform(x_test['Comments'])
+
+model=MultinomialNB()
+
+model.fit(x_train_vec,y_train)
+
+pred=model.predict(x_test_vec)
+pred
+
+y_test=[int(label) for label in y_test]
+pred=[int(label)for label in pred]
+
+accuracy=accuracy_score(y_test,pred)
+
+print(accuracy*100,'%')
+
+input_review = input("Enter a review: ")
+input_review_vec = vectorizer.transform([input_review])
+prediction = model.predict(input_review_vec)
+print("Predicted rating:", prediction[0])
+
