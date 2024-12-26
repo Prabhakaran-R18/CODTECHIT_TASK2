@@ -1,6 +1,14 @@
 # CODTECHIT_TASK2
 
-# Movie Review Sentiment Analysis
+## Name: Prabhakaran R
+
+## Domain: Machine Learning
+
+## Intern ID : CT08ETY
+
+## Company: CODTECHIT SOLUTIONS
+
+# PROJECT : Movie Review Sentiment Analysis
 
 ## Project Overview
 This project implements a sentiment analysis model that classifies movie reviews as positive or negative. Using Natural Language Processing (NLP) techniques and Machine Learning, the system analyzes the text content of movie reviews and predicts sentiment ratings.
